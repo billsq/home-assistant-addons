@@ -69,7 +69,7 @@ extra_environmental_variables() {
         if [ -n "$envs" ] && [ "$envs" != "null" ]; then
             for val in $envs; do
                 bashio::log.info "Setting extra ENV $val"
-                export "$val"
+                export $val
             done
         fi
     fi
