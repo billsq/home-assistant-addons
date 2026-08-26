@@ -62,6 +62,7 @@ init_environment() {
 }
 
 extra_environmental_variables() {
+    bashio::log.warning "extra_environmental_variables"
     if bashio::config.has_value 'environmental_variables'; then
         local envs
         envs=$(bashio::config 'environmental_variables')
