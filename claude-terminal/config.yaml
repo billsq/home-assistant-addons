@@ -42,6 +42,7 @@ options:
   ha_mcp_version: "7.11.0"
   persistent_apk_packages: []
   persistent_pip_packages: []
+  environmental_variables: []
 schema:
   auto_launch_claude: bool?
   claude_auto_update: bool?
@@ -53,6 +54,8 @@ schema:
   persistent_apk_packages:
     - str
   persistent_pip_packages:
+    - str
+  environmental_variables:
     - str
 
 # Volume mappings for file access
