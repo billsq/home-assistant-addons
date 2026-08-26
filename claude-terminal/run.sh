@@ -61,6 +61,18 @@ init_environment() {
     bashio::log.info "Environment initialized (HOME=${HOME})"
 }
 
+extra_environmental_variables() {
+    if bashio::config.has_value 'environmental_variables'; then
+        local environmental_variables
+        environmental_variables=$(bashio::config 'environmental_variables')
+        if [ -n "$environmental_variables" ] && [ "$environmental_variables" != "null" ]; then
+            for val in $environmental_variables; do
+                export "$val"
+            done
+        fi
+    fi
+}
+
 # One-time migration of existing authentication files
 migrate_legacy_auth_files() {
     local target_dir="$1"
@@ -402,6 +414,7 @@ main() {
     bashio::log.info "Starting Claude Terminal add-on..."
 
     init_environment
+    extra_environmental_variables
     check_cpu_features
     setup_commands
     update_claude
