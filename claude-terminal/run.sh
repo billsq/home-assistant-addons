@@ -63,10 +63,10 @@ init_environment() {
 
 extra_environmental_variables() {
     if bashio::config.has_value 'environmental_variables'; then
-        local environmental_variables
-        environmental_variables=$(bashio::config 'environmental_variables')
-        if [ -n "$environmental_variables" ] && [ "$environmental_variables" != "null" ]; then
-            bashio::log.warning "Extra ENV $environmental_variables"
+        local envs
+        envs=$(bashio::config 'environmental_variables')
+        bashio::log.warning "Extra ENV $envs"
+        if [ -n "$envs" ] && [ "$envs" != "null" ]; then
             for val in $environmental_variables; do
                 export "$val"
             done
