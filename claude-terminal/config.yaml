@@ -16,7 +16,7 @@ arch:
   - amd64
 
 # External resources
-url: "https://github.com/heytcass/home-assistant-addons"
+url: "https://github.com/billsq/home-assistant-addons"
 
 # Web interface configuration
 ingress: true
